@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Angular Tutorials</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+<body>
+	<form>
+    	<div ng-controller="myCtrl">
+		<h1>Data Binding</h1>
+			Name : <input type="text" ng-model="myVar"></input><br>
+			{{myVar}}<br>
+			<b>ng-bind as <i ng-bind="myVar"></i></b><br><br><br>
+			<input type="text" ng-model="myVar"></input><br>
+			<b>Computed Value : {{comVar}}</b>
+		<table class="table table-stripped">
+			<thead>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Salary</th>
+				<th>City</th>
+			</thead>
+			<tbody>
+				<!-- https://docs.angularjs.org/api/ng/filter -->
+				<tr ng-repeat="user in userList | filter : myVar "> <!-- |  orderBy : 'fname' -->
+					<td>{{user.fname}}</td>
+					<td>{{user.lname}}</td>
+					<td>{{user.sal}}</td>
+					<td>{{user.city}}</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</form>
+</body>
+	<script type="text/javascript" src="lib/angular.js"></script>
+	<script type="text/javascript" src="app/app.js"></script>
+</html>
